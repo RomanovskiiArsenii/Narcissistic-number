@@ -10,23 +10,18 @@ class Program
 {
     public static bool Narcissistic(int value)
     {
-        if (value <= 0) { Console.WriteLine("Positive number > 1 required"); return false; }
-
+        //только положительные числа
+        if (value <= 0) { Console.WriteLine("Positive number required"); return false; }                        
+        //получение строкового представления числа
         string numbers = value.ToString();
         double result = 0;
-
-        for (int i = 0; i < numbers.Length; i++)
-        {
-            double digit = Math.Pow(int.Parse(numbers[i].ToString()), numbers.Length);
-            result += digit;
-        }
-
-        if (result == value) { Console.WriteLine("Number is Narcissistic"); return true; }
-        else { Console.WriteLine("Number is not Narcissistic"); return false; }
+        //каждая цифра в степени значения базы числа суммируется с локальной переменной result
+        foreach (var number in numbers) { result += Math.Pow(int.Parse(number.ToString()), numbers.Length); }
+        //сравнение результата с изначальным значением 
+        return result == value;
     }
     static void Main(string[] args)
     {
-        //positive numbers >= 10 only
         //1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
         Console.WriteLine(Narcissistic(153));
     }
