@@ -10,7 +10,7 @@ class Program
 {
     public static bool Narcissistic(int value)
     {
-        if (value < 10) { Console.WriteLine("Positive number >= 10 required"); return false; }
+        if (value <= 0) { Console.WriteLine("Positive number > 1 required"); return false; }
 
         string numbers = value.ToString();
         double result = 0;
