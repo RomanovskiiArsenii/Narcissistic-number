@@ -1,0 +1,1 @@
+# Narcissistic number
